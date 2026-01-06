@@ -1,0 +1,791 @@
+/* 
+ * 16 Days of Amore - Custom Styles
+ * Theme: Romantic, Slow Living, Italian Elegance
+ */
+
+:root {
+    --color-primary: #C06C59;
+    /* Terracotta */
+    --color-secondary: #2C3E50;
+    /* Deep Blue/Grey */
+    --color-accent: #E6B89C;
+    /* Soft Peach */
+    --color-bg: #FDFBF7;
+    /* Creamy White */
+    --color-text: #4A4A4A;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+    --spacing-container: 1200px;
+    --transition-speed: 0.3s;
+}
+
+/* Base Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed) ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(253, 251, 247, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed) ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/images/hero.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeInDown 1.5s ease-out;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+.btn-cta:hover {
+    background-color: #a55b4b;
+    transform: translateY(-3px);
+}
+
+/* Section Common */
+.section {
+    padding: 5rem 0;
+}
+
+.container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    margin: 1rem auto 0;
+}
+
+/* Itinerary Layout */
+.itinerary-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.stage-card {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    /* For scroll reveal */
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.stage-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stage-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.stage-image {
+    flex: 1;
+    height: 400px;
+}
+
+.stage-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stage-content {
+    flex: 1;
+}
+
+.stage-header {
+    margin-bottom: 1.5rem;
+}
+
+.stage-subtitle {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.day-list {
+    margin-top: 1.5rem;
+}
+
+.day-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-accent);
+}
+
+.day-item strong {
+    color: var(--color-secondary);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* Budget Section */
+.budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.budget-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.budget-item i {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.budget-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.budget-item .amount {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.budget-breakdown {
+    margin-top: 1rem;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.budget-breakdown li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.budget-breakdown li span:last-child {
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+.budget-total {
+    text-align: center;
+    background: var(--color-secondary);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.budget-total h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.budget-total .total-amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+/* Tips Section */
+.tips-container {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--color-primary);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tip-box h4 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tip-box ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.tip-box ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: var(--color-secondary);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+footer i {
+    color: #e74c3c;
+    margin: 0 0.2rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .stage-card {
+        flex-direction: column !important;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .stage-image {
+        height: 250px;
+        width: 100%;
+    }
+
+    .nav-links {
+        display: none;
+        /* Can implement hamburger later if needed, simple hide for now on small mobile */
+    }
+}
+
+/* Timeline Components (V2) */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 80px;
+    width: 2px;
+    background: var(--color-accent);
+    margin-left: -1px;
+}
+
+.timeline-day {
+    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Day Header */
+.day-header {
+    margin-bottom: 2rem;
+    padding-left: 100px;
+    position: relative;
+}
+
+.day-header span {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(197, 108, 92, 0.3);
+}
+
+.day-header h4 {
+    font-size: 1.8rem;
+    color: var(--color-secondary);
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Time Slot Wrapper */
+.time-slot {
+    display: flex;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Time Marker (Left column) */
+.time-marker {
+    width: 80px;
+    /* Fixed width for alignment */
+    text-align: right;
+    padding-right: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    z-index: 2;
+    background-color: var(--color-bg);
+    /* Mask the line behind timestamp if needed */
+    flex-shrink: 0;
+    padding-top: 1.5rem;
+    /* Align with card content */
+}
+
+/* Timeline Dot */
+.time-slot::before {
+    content: '';
+    position: absolute;
+    left: 80px;
+    top: 1.8rem;
+    /* Align dot with text */
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+    z-index: 3;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 3px var(--color-bg);
+    /* Clear space around dot */
+}
+
+/* Activity Card (Right column) */
+.activity-detail {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* Soft premium shadow */
+    flex-grow: 1;
+    margin-left: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-detail:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.activity-detail.highlight {
+    border-left: 5px solid var(--color-primary);
+}
+
+.activity-detail h5 {
+    font-size: 1.3rem;
+    /* Larger title */
+    margin: 0.5rem 0 0.8rem 0;
+    color: var(--color-secondary);
+    font-family: 'Playfair Display', serif;
+}
+
+.activity-detail p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Tip Card Styling */
+.tip-card {
+    background: #fff8e1;
+    /* Solfter yellow */
+    border-left: 4px solid #ffc107;
+    padding: 1.2rem;
+    margin-top: 1.2rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    color: #664d03;
+}
+
+.tip-card strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #856404;
+    font-size: 1.1rem;
+}
+
+.tip-card ul li {
+    margin-bottom: 0.8rem;
+    /* Breathing room for list items */
+    padding-left: 0.5rem;
+}
+
+/* Timeline Image */
+.timeline-image {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.timeline-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+/* Route Map Styles */
+.route-map {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.route-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.map-footer {
+    padding: 1rem;
+    text-align: center;
+    background: #fdfbf7;
+    border-top: 1px solid #eee;
+}
+
+.btn-map {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-map:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* History Section & Notes */
+.history-section {
+    padding: 3rem 1.5rem;
+    background: #fdfbf7;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #e0d6c8;
+}
+
+.history-section h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.history-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #5d5d5d;
+}
+
+.history-note {
+    background: #fffcf5;
+    border-left: 4px solid var(--color-secondary);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.history-note h4 {
+    color: var(--color-secondary);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.history-note p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.tag.food {
+    background: #ffeaa7;
+    color: #d35400;
+}
+
+.tag.sight {
+    background: #81ecec;
+    color: #0097e6;
+}
+
+.tag.transit {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.tag.hotel {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.tag.food {
+    background-color: #fbe9e7;
+    color: #bf360c;
+}
+
+.tag.sight {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.tag.shopping {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .day-header {
+        padding-left: 50px;
+    }
+
+    .time-slot {
+        flex-direction: column;
+        padding-left: 35px;
+        /* Space for line */
+    }
+
+    .time-marker {
+        width: auto;
+        text-align: left;
+        padding-bottom: 0.5rem;
+        padding-top: 0;
+        margin-bottom: 5px;
+        color: var(--color-primary);
+    }
+
+    .time-slot::before {
+        left: 20px;
+        top: 5px;
+        /* Align with top of time marker in mobile */
+    }
+
+    .activity-detail {
+        margin-left: 0;
+    }
+}
+
+.divider-icon {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
