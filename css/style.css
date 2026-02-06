@@ -2210,6 +2210,12 @@ footer i {
 }
 
 /* City-specific backgrounds */
+/* City-specific backgrounds */
+.city-hero.torino .city-hero-bg {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Fallback/Gradient for Turin */
+}
+
 .city-hero.bologna .city-hero-bg {
     background-image: url('../assets/images/bologna.png');
 }
@@ -2218,8 +2224,9 @@ footer i {
     background-image: url('../assets/images/venice.png');
 }
 
-.city-hero.dolomites .city-hero-bg {
-    background-image: url('../assets/images/dolomites.png');
+.city-hero.como .city-hero-bg {
+    background-image: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    /* Fallback/Gradient for Como */
 }
 
 .city-hero.milan .city-hero-bg {
@@ -2397,4 +2404,31 @@ img[loading="lazy"] {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* Life Hacks Grid (Budget Section) */
+.life-hacks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.life-hacks-grid strong {
+    color: #333;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.life-hacks-grid p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.life-hacks-grid .hack-full-width {
+    grid-column: 1 / -1;
+}
+
+.life-hacks-grid .danger-text {
+    color: #dc3545;
 }
