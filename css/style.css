@@ -800,6 +800,20 @@ footer i {
     line-height: 1.6;
 }
 
+.itinerary-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.itinerary-image:hover {
+    transform: scale(1.02);
+}
+
 /* Activity Details (可展開的詳細資訊) */
 .activity-details {
     margin-top: 1rem;
