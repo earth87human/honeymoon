@@ -507,8 +507,30 @@ footer i {
     }
 
     .nav-links {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 5px;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+        scrollbar-width: none;
+        /* Hide scrollbar for Firefox */
+        gap: 1.2rem;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .nav-links::-webkit-scrollbar {
         display: none;
-        /* Can implement hamburger later if needed, simple hide for now on small mobile */
+        /* Hide scrollbar for Chrome/Safari */
+    }
+
+    .nav-links a {
+        white-space: nowrap;
+        font-size: 0.9rem;
+    }
+
+    .nav-logo {
+        display: none;
     }
 }
 
@@ -806,7 +828,7 @@ footer i {
     object-fit: cover;
     border-radius: 8px;
     margin-top: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
