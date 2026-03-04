@@ -691,7 +691,7 @@ footer i {
 }
 
 .accordion-item.active .accordion-body {
-    max-height: 8000px;
+    max-height: 50000px;
     /* Large enough for content */
 }
 
